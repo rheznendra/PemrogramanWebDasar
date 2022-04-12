@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>jQuery Animate</title>
+	</head>
+
+	<body>
+		<button>Start Animation</button><br> <br>
+		<div style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script>
+			$("button").click(function () {
+				var div = $("div");
+				div.animate({
+					left: parseFloat(div.css('left')) + 50
+				}, 'fast').animate({
+					top: parseFloat(div.css('top')) + 50
+				}, 'fast');
+			});
+		</script>
+	</body>
+
+</html>

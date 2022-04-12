@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<form action="javascript:;">
+			<table>
+				<tr>
+					<td>NIM</td>
+					<td><input type="text" id="nim"></td>
+				</tr>
+				<tr>
+					<td>Nama</td>
+					<td><input type="text" id="nama"></td>
+				</tr>
+				<tr>
+					<td>Program Studi</td>
+					<td>
+						<select id="prodi">
+							<option value="">Pilih</option>
+							<option value="s1si">S1 Sistem Informasi</option>
+							<option value="s1tk">S1 Teknik Komputer</option>
+							<option value="d3si">D3 Sistem Informasi</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Jenis Kelamin</td>
+					<td>
+						<input type="radio" name="jk" value="1"> Laki-Laki
+						<input type="radio" name="jk" value="2"> Perempuan
+						<input type="radio" name="jk" value="3"> Transgender
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button type="submit" onclick="proses();">Submit</button>
+						<input type="reset" value="Reset">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<script>
+			const proses = () => {
+				var nim = document.getElementById('nim').value;
+				var nama = document.getElementById('nama').value;
+				var prodi = document.getElementById('prodi').value;
+				var jk = document.querySelector('input[name="jk"]:checked').value;
+				console.log(nim)
+				console.log(nama)
+				console.log(prodi)
+				console.log(jk)
+			}
+		</script>
+	</body>
+
+</html>

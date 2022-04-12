@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Program Kredit Rumah</title>
+	</head>
+
+	<body>
+		<h2>Program Kredit Rumah</h2>
+		<form action="javascript:;">
+			<table border="0">
+				<tr>
+					<td>Tipe Rumah</td>
+					<td>:</td>
+					<td>
+						<select name="tipe_rumah" id="tipe_rumah" style="width:100%;">
+							<option value="">Pilih</option>
+							<option value="1">Alamanda</option>
+							<option value="2">Mawar</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Lama Kredit</td>
+					<td>:</td>
+					<td><input type="number" id="lama_kredit"></td>
+				</tr>
+				<tr align="center">
+					<td colspan="3">
+						<input type="submit" value="Proses" onclick="proses();">
+						<input type="submit" value="Reset" onclick="resetAll();">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<pre id="result-box"></pre>
+		<table border="1" style="display: none;">
+			<thead>
+				<tr>
+					<th>Bulan</th>
+					<th>Angsuran</th>
+					<th>Sisa</th>
+				</tr>
+			</thead>
+			<tbody id="result-table"></tbody>
+		</table>
+		<script>
+			var result_box = document.getElementById('result-box');
+			var result_table = document.getElementById('result-table');
+
+			function resetAll() {
+				result_box.innerHTML = '';
+				result_table.parentElement.style.display = 'none';
+			}
+
+			function proses() {
+				var tipe_rumah = document.getElementById("tipe_rumah").value;
+				var lama_kredit = document.getElementById("lama_kredit").value;
+				if (tipe_rumah != '' && lama_kredit >= 1) {
+					var harga = 0,
+						nama_rumah = '';
+					if (tipe_rumah == 1) {
+						nama_rumah = 'Alamanda';
+						harga = 120000000;
+					} else if (tipe_rumah == 2) {
+						harga = 130000000;
+						nama_rumah = 'Mawar';
+					}
+					var uang_muka = 0.2 * harga;
+					var sisa = harga - uang_muka;
+					var angsuran = Math.round(sisa / lama_kredit);
+
+					var hasil = "PROGRAM KREDIT RUMAH<br>"
+					hasil += "============================== <br>";
+					hasil += `Tipe Rumah\t= ${nama_rumah}<br>`;
+					hasil += `Harga Rumah\t= ${harga}<br>`;
+					hasil += `Uang Muka\t= ${uang_muka}<br>`;
+					hasil += `Sisa\t\t= ${sisa}<br>`;
+					hasil += `Lama Kredit\t= ${lama_kredit}<br>`;
+					hasil += `Angsuran\t= ${angsuran}`;
+					result_box.innerHTML = hasil;
+
+					result_table.parentElement.style.display = 'table';
+
+					hasil = "";
+					for (let index = 0; index < lama_kredit; index++) {
+						sisa = sisa - angsuran;
+
+						hasil += "<tr>";
+						hasil += `<td>${index+1}.</td>`;
+						hasil += `<td>${angsuran}</td>`;
+						hasil += `<td>${sisa}</td>`;
+						hasil += "</tr>";
+						result_table.innerHTML = hasil;
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

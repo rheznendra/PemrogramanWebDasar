@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)http://localhost:63342/untitled/tugas.html?_ijt=s9ggmddit760de46r3c0fl68de&_ij_reload=RELOAD_ON_SAVE -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+<body>
+
+<h1>menghitung biaya tagihan listrik <br> PLN BANDUNG</h1>
+
+<table border="2">
+    <tbody><tr>
+        <td>nama pengguna</td>
+        <td><input type="text"></td>
+    </tr>
+    <tr>
+        <td>kategori</td>
+        <td><select id="kategori">
+            <option>sosial</option>
+            <option>rumah</option>
+            <option>industrial</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>jumlah pemakaian listrik</td>
+        <td><input type="text" id="jumlah"></td>
+    </tr>
+    </tbody></table>
+<br><hr>
+<button onclick="proses()">proses</button>
+<button onclick="document.location.reload(true)" value="reload page">reset</button>
+
+<hr>
+<h2>Rincian tagihan</h2>
+<table id="myTable" border="2" cellspacing="0" cellpadding="5">
+    <tr>
+        <td>jumlah</td>
+        <td>tarif per kwh</td>
+        <td>abdomen</td>
+        <td>sub total</td>
+    </tr>
+</table>
+
+<p>subtotal :<input type="text" id="subtotal" readonly></p>
+<p>pajak :<input type="text" id="pajak" readonly></p>
+<p>bayar :<input type="text" id="bayar" readonly></p>
+
+<script>
+    function proses(){
+        var pajak =0;
+        var tarip =0;
+        var count = document.getElementById("jumlah").value
+        var cek = document.getElementById("kategori").value
+        var hargaktegori =0;
+
+        switch (cek) {
+            case "sosial" : hargaktegori = 10000
+                            tarip = 300
+                            pajak = 0
+                break;
+            case "rumah" : hargaktegori = 30000
+                            tarip = 500
+                            pajak = 0.1
+                break;
+            case "industrial" : hargaktegori = 50000
+                                tarip = 1000
+                                pajak = 0.3
+                break;
+        }
+
+        var kwh = (count * tarip)+tarip;
+
+        document.getElementById("subtotal").value = hargaktegori + kwh - tarip
+        document.getElementById("pajak").value = (hargaktegori + kwh - tarip) * pajak
+        document.getElementById("bayar").value = hargaktegori + kwh - tarip+((hargaktegori + kwh - tarip) * pajak)
+
+        for (var i = 0; i < document.getElementById("jumlah").value; i++) {
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(1)
+            var cell1 = row.insertCell(0)
+            var cell2 = row.insertCell(1)
+            var cell3 = row.insertCell(2)
+            var cell4 = row.insertCell(3)
+            cell1.innerHTML = count--
+            cell2.innerHTML = kwh = kwh - tarip
+            cell3.innerHTML = hargaktegori
+            cell4.innerHTML = hargaktegori + kwh
+        }
+    }
+
+</script>
+</body></html>

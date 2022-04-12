@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<h1>From pembelian barang</h1>
+<form>
+    <label>pilih barang :</label>
+    <select name="barang" id="barang">
+        <option value="monitor">monitor</option>
+        <option value="keyboard">keyboard</option>
+        <option value="mouse">mouse</option>
+    </select>
+    <p>jumlah :<input id="jumlah" type="text"></p>
+    <p> status :
+    <select id="status">
+        <option value="pelanggan">pelanggan</option>
+        <option value="reguler">reguler</option>
+        <option value="member">member</option>
+    </select></p>
+    <p>harga  :<input id="harga" type="text" readonly><p>
+    <p>diskon : <input type="text" id="diskon" readonly></p>
+    <p>total :<input id="total" type="text" readonly></p>
+
+</form>
+
+<button onclick="proses()">proses</button>
+<button onclick="document.location.reload(true)" value="reload page">reset</button>
+
+<script>
+    function proses(){
+
+        var e = document.getElementById("barang").value
+        var x = document.getElementById("status").value
+        var harga = 0;
+        var diskon =0;
+
+        switch (x) {
+            case "pelanggan" : diskon = 0.1
+                break;
+            case "member" : diskon = 0.3
+                break;
+            case "reguler" : diskon = 0.05
+                break;
+        }
+
+        switch (e) {
+            case "monitor" : harga = 850000
+                break;
+            case "keyboard" : harga = 470000
+                break;
+            case "mouse" : harga =350000
+                break;
+        }
+
+
+        document.getElementById("harga").value=harga;
+        var temp = document.getElementById("jumlah").value * document.getElementById("harga").value
+        var total = temp - (temp*diskon)
+        document.getElementById("diskon").value=" Rp."+harga*diskon
+        document.getElementById("total").value=" Rp."+total
+
+    }
+</script>
+
+</body>
+</html>

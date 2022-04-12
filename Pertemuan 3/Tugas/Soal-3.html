@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<h1>From pembelian barang</h1>
+<form>
+    <label>pilih barang :</label>
+    <select name="barang" id="barang">
+        <option value="monitor">monitor</option>
+        <option value="keyboard">keyboard</option>
+        <option value="mouse">mouse</option>
+    </select>
+    <p>jumlah :<input id="jumlah" type="text"></p>
+    <p>harga  :<input id="harga" type="text" readonly><p>
+    <p>total :<input id="total" type="text" readonly></p>
+
+</form>
+
+<button onclick="proses()">proses</button>
+<button onclick="document.location.reload(true)" value="reload page">reset</button>
+
+<script>
+    function proses(){
+
+        var e = document.getElementById("barang").value
+        var harga = 0;
+
+        switch (e) {
+            case "monitor" : harga = 850000
+                break;
+            case "keyboard" : harga = 470000
+                break;
+            case "mouse" : harga =350000
+                break;
+        }
+        document.getElementById("harga").value=harga;
+        var temp = document.getElementById("jumlah").value * document.getElementById("harga").value
+        document.getElementById("total").value=" Rp."+temp;
+
+    }
+</script>
+
+</body>
+</html>

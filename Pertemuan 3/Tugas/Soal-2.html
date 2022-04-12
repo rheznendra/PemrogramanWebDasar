@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<h1>Program penggajian PT. satu malam 2 cinta</h1>
+
+<p>Nama pegawai :<input type = "text" id="nama"> </p>
+<p>jam kerja :<input type = "text" id="jam"> </p>
+<p>Upah perjam:<input type = "text" id="upah"> </p>
+<p>anak :<input type = "text" id="anak"> </p>
+<hr>
+<p>gaji :<input type = "text" id="gaji" readonly> </p>
+<p>tunj.anak 10%:<input type = "text" id="tunjangan" readonly> </p>
+<p>total :<input type = "text" id="total" readonly> </p>
+
+<button onclick="proses()">proses</button>
+<button onclick="document.location.reload(true)" value="reload page">reset</button>
+
+<script>
+    function proses(){
+        var temp = document.getElementById("jam").value * document.getElementById("upah").value
+        document.getElementById("gaji").value=" Rp."+temp;
+
+        var tunj = temp * (document.getElementById("anak").value * 0.1)
+        document.getElementById("tunjangan").value=" Rp."+tunj;
+
+        var tot = temp + tunj
+        document.getElementById("total").value=" Rp."+tot;
+    }
+</script>
+
+</body>
+</html>

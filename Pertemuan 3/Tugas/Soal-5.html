@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soal-5</title>
+    </head>
+
+    <body>
+
+
+        <h1>From penjualan barang elektronik</h1>
+
+        <p> Nama barang : <input id="nama" type="text"></p>
+        <p> Harga : <input id="harga" type="text"></p>
+        <p> Jumlah : <input id="jumlah" type="text"></p>
+        <p>Aksesoris :
+            <label><input type="checkbox" id="usb"> USB</label>
+            <label><input type="checkbox" id="memori"> memori</label>
+            <label><input type="checkbox" id="speaker"> Speaker</label>
+        </p>
+        <p>total : <input id="total" type="text" readonly></p>
+        <p>pajak 10% : <input id="pajak" type="text" readonly></p>
+        <p>bayar : <input id="bayar" type="text" readonly></p>
+
+        <button onclick="proses()">proses</button>
+        <button onclick="document.location.reload(true)" value="reload page">reset</button>
+
+        <script>
+            function proses() {
+                var usb = document.getElementById("usb").checked;
+                var memori = document.getElementById("memori").checked;
+                var speaker = document.getElementById("speaker").checked;
+
+                var hargatambah = 0;
+
+                if (usb) {
+                    hargatambah = hargatambah + 50000
+                }
+                if (memori) {
+                    hargatambah = hargatambah + 120000
+                }
+                if (speaker) {
+                    hargatambah = hargatambah + 40000
+                }
+
+                var temp = document.getElementById("jumlah").value * document.getElementById("harga").value +
+                    hargatambah
+                document.getElementById("total").value = " Rp." + temp
+
+                var pajak = temp * 0.1
+                document.getElementById("pajak").value = " Rp." + pajak
+
+                var bayar = temp + pajak
+                document.getElementById("bayar").value = " Rp." + bayar
+            }
+        </script>
+    </body>
+
+</html>

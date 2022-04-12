@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soal 1</title>
+    </head>
+
+    <body>
+        <style>
+            * {
+                outline: none;
+            }
+
+            input:not(.full-width) {
+                width: 100%;
+            }
+
+            h1 {
+                text-align: center;
+            }
+        </style>
+        <h1>Program Penjualan Barang</h1>
+        <table align="center">
+            <tr>
+                <td>Nama Barang</td>
+                <td>:</td>
+                <td>
+                    <input type="text" id="nama_barang">
+                </td>
+            </tr>
+            <tr>
+                <td>Harga</td>
+                <td>:</td>
+                <td>
+                    <input type="number" id="harga">
+                </td>
+            </tr>
+            <tr>
+                <td>Jumlah</td>
+                <td>:</td>
+                <td>
+                    <input type="number" id="jumlah">
+                </td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>:</td>
+                <td><input type="text" id="total" disabled></td>
+            </tr>
+            <tr>
+                <td>Diskon</td>
+                <td>:</td>
+                <td>
+                    <input type="text" class="full-width" id="diskon"> (1-100) %
+                </td>
+            </tr>
+            <tr>
+                <td>Bayar</td>
+                <td>:</td>
+                <td>
+                    <input type="text" id="bayar" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <button type="submit" id="proses">Proses</button>
+                    <button type="reset" id="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+        <script>
+            var proses = document.getElementById('proses');
+            var reset = document.getElementById('reset');
+
+            proses.addEventListener('click', () => {
+                var harga = document.getElementById('harga').value;
+                var jumlah = document.getElementById('jumlah').value;
+                var inp_total = document.getElementById('total');
+                var diskon = document.getElementById('diskon').value || 0;
+                var bayar = document.getElementById('bayar');
+
+                var total = harga * jumlah;
+                inp_total.value = total;
+
+                if (diskon >= 1 && diskon <= 100) {
+                    total = total - (total * (diskon / 100));
+                }
+                bayar.value = total;
+            });
+
+            reset.addEventListener('click', () => {
+                document.querySelectorAll('input').forEach((v) => v.value = '');
+            });
+        </script>
+    </body>
+
+</html>

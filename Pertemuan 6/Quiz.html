@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Kuis</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-1 mt-3">
+					<div class="card">
+						<div class="card-header bg-primary">
+							<h5 class="card-title text-light">Menghitung Luas 2 Dimensi</h5>
+						</div>
+						<div class="card-body">
+							<ul class="nav nav-tabs nav-fill">
+								<li class="nav-item">
+									<button class="nav-link" id="p-tab" data-bs-toggle="tab" data-bs-target="#p-form"
+										type="button">Persegi</button>
+								</li>
+								<li class="nav-item">
+									<button class="nav-link" id="pp-tab" data-bs-toggle="tab" data-bs-target="#pp-form"
+										type="button">Persegi Panjang</button>
+								</li>
+								<li class="nav-item">
+									<button class="nav-link" id="l-tab" data-bs-toggle="tab" data-bs-target="#l-form"
+										type="button">Lingkaran</button>
+								</li>
+								<li class="nav-item">
+									<button class="nav-link" id="s-tab" data-bs-toggle="tab" data-bs-target="#s-form"
+										type="button">Segitiga</button>
+								</li>
+							</ul>
+							<div class="mt-3">
+								<div class="tab-content" id="appContent">
+									<div class="tab-pane fade" id="p-form">
+										<div class="mb-3">
+											<label for="p-sisi" class="form-label">Sisi</label>
+											<input type="number" id="p-sisi" class="form-control" min="1">
+										</div>
+										<div>
+											<button class="btn btn-primary" id="submit-p">Submit</button>
+										</div>
+									</div>
+									<div class="tab-pane fade" id="pp-form">
+										<div class="mb-3">
+											<label for="pp-panjang" class="form-label">Panjang</label>
+											<input type="number" id="pp-panjang" class="form-control" min="1">
+										</div>
+										<div class="mb-3">
+											<label for="pp-lebar" class="form-label">Lebar</label>
+											<input type="number" id="pp-lebar" class="form-control" min="1">
+										</div>
+										<div>
+											<button class="btn btn-primary" id="submit-pp">Submit</button>
+										</div>
+									</div>
+									<div class="tab-pane fade" id="l-form">
+										<div class="mb-3">
+											<label for="l-jari-jari" class="form-label">Jari-Jari</label>
+											<input type="number" id="l-jarijari" class="form-control" min="1">
+										</div>
+										<div class="mb-3">
+											<p class="fw-bold">Atau</p>
+										</div>
+										<div class="mb-3">
+											<label for="l-diameter" class="form-label">Diameter</label>
+											<input type="number" id="l-diameter" class="form-control" min="1">
+										</div>
+										<div>
+											<button class="btn btn-primary" id="submit-l">Submit</button>
+										</div>
+									</div>
+									<div class="tab-pane fade" id="s-form">
+										<div class="mb-3">
+											<label for="s-alas" class="form-label">Alas</label>
+											<input type="number" id="s-alas" class="form-control" min="1">
+										</div>
+										<div class="mb-3">
+											<label for="s-tinggi" class="form-label">Tinggi</label>
+											<input type="number" id="s-tinggi" class="form-control" min="1">
+										</div>
+										<div>
+											<button class="btn btn-primary" id="submit-s">Submit</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 my-3">
+					<div class="card">
+						<div class="card-header bg-primary">
+							<h5 class="card-title text-light">Hasil</h5>
+						</div>
+						<div class="card-body">
+							<h5 id="result-title"></h5>
+							<div id="result-body"></div>
+							<hr>
+							<div id="result"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script>
+			const setResult = (title, body, result) => {
+				$('#result-title').html(`Luas ${title}`);
+				$('#result-body').html(body);
+				$('#result').html(`Luas : <b>${result} cm<sup>2</sup></b>`);
+			}
+
+			const resetResult = () => {
+				$('#result-title').html(null);
+				$('#result-body').html(null);
+				$('#result').html(null);
+			}
+
+			$('#submit-p').click(() => {
+				sisi = $('#p-sisi').val();
+
+				if (sisi > 0) {
+
+					title = 'Persegi'
+					body = `Sisi : ${sisi} cm`;
+
+					result = sisi * sisi;
+					setResult(title, body, result);
+				} else {
+					resetResult();
+				}
+			})
+
+			$('#submit-pp').click(() => {
+				panjang = $('#pp-panjang').val();
+				lebar = $('#pp-lebar').val();
+
+				if (panjang > 0 && lebar > 0) {
+					title = 'Persegi Panjang';
+
+					body = `Panjang : ${panjang} cm<br>`;
+					body += `Lebar : ${lebar} cm`;
+
+					result = panjang * lebar;
+					setResult(title, body, result);
+				} else {
+					resetResult();
+				}
+			});
+
+			$('#l-jarijari').on("change keyup", function () {
+				j = $(this).val();
+				if (j > 0) {
+					$('#l-diameter').val(j * 2);
+				} else {
+					$('#l-diameter').val(null);
+				}
+			})
+			$('#l-diameter').on("change keyup", function () {
+				d = $(this).val();
+				if (d > 0) {
+					$('#l-jarijari').val(d / 2);
+				} else {
+					$('#l-jarijari').val(null);
+				}
+			})
+
+			$('#submit-l').click(() => {
+				jarijari = $('#l-jarijari').val();
+				diameter = $('#l-diameter').val();
+
+				if (jarijari > 0 || diameter > 0) {
+					title = 'Lingkaran';
+
+					body = `Jari-Jari : ${jarijari} cm<br>`;
+					body += `Diameter : ${diameter} cm`;
+
+					result = 3.14 * Math.pow(jarijari, 2);
+					setResult(title, body, result);
+				} else {
+					resetResult();
+				}
+			})
+
+			$('#submit-s').click(() => {
+				alas = $('#s-alas').val();
+				tinggi = $('#s-tinggi').val();
+
+				if (alas > 0 && tinggi > 0) {
+					title = 'Segitiga';
+
+					body = `Alas : ${alas} cm<br>`;
+					body += `Tinggi : ${tinggi} cm`;
+
+					result = 0.5 * alas * tinggi;
+					setResult(title, body, result);
+				} else {
+					resetResult();
+				}
+			})
+		</script>
+	</body>
+
+</html>

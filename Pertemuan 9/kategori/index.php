@@ -1,11 +1,6 @@
 <?php
-session_start();
-// session_unset();
-// session_destroy();
-$data = [];
-if (isset($_SESSION['data'])) {
-	$data = $_SESSION['data'];
-}
+require_once("../misc/database.php");
+$query = $con->query("SELECT * FROM kategori");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +17,11 @@ if (isset($_SESSION['data'])) {
 	<div class="container">
 		<div class="row mt-5">
 			<div class="col-10 mx-auto">
+				<a href="../index.php" class="btn btn-danger btn-sm mb-3">List Barang</a>
 				<a href="create.php" class="btn btn-primary btn-sm mb-3">Add Data</a>
 				<div class="card">
 					<div class="card-header bg-primary fw-bold">
-						<h5 class="card-title text-light mb-0">DAFTAR BARANG</h5>
+						<h5 class="card-title text-light mb-0">DAFTAR KATEGORI</h5>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -33,35 +29,29 @@ if (isset($_SESSION['data'])) {
 								<thead>
 									<tr class="text-center">
 										<th>#</th>
-										<th>Kode</th>
-										<th>Nama Barang</th>
-										<th>Harga</th>
-										<th>Stok</th>
-										<th>Diskon</th>
+										<th>Nama </th>
 										<th>#</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php if (!count($data)) { ?>
-										<tr class="text-center">
-											<td colspan="7">Tidak ada data untuk ditampilkan.</td>
-										</tr>
-									<?php }
+									<?php if ($query->num_rows <= 0) { ?>
+									<tr class="text-center">
+										<td colspan="2">Tidak ada data untuk ditampilkan.</td>
+									</tr>
+									<?php } else { ?>
+									<?php
 									$no = 1;
-									foreach ($data as $idx => $e) {
+									while($e = $query->fetch_assoc()) {
 									?>
-										<tr class="text-center">
-											<td><?= $no++; ?>.</td>
-											<td><?= $e['kode'] ?></td>
-											<td><?= $e['name']; ?></td>
-											<td>Rp<?= number_format($e['price'], 0, '', '.'); ?></td>
-											<td><?= number_format($e['stock'], 0, '', '.'); ?></td>
-											<td><?= $e['disc'] >= 1 ? $e['disc'] . '%' : '-'; ?></td>
-											<td>
-												<a href="edit.php?kode=<?= substr($e['kode'], -5); ?>" class="btn btn-warning btn-sm">Edit</a>
-											</td>
-										</tr>
-									<?php } ?>
+									<tr class="text-center">
+										<td><?= $no++; ?>.</td>
+										<td><?= $e['nama']; ?></td>
+										<td>
+											<a href="edit.php?id=<?= substr($e['id'], -5); ?>"
+												class="btn btn-warning btn-sm">Edit</a>
+										</td>
+									</tr>
+									<?php } } ?>
 								</tbody>
 							</table>
 						</div>

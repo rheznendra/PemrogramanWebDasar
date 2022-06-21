@@ -1,0 +1,236 @@
+@import url(color.css);
+@import url("https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5");
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	font-size: .875rem;
+}
+
+.fa-light {
+	width: 16px;
+	height: 16px;
+}
+
+/*
+   * Sidebar
+   */
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	/* rtl:raw:
+	right: 0;
+	*/
+	bottom: 0;
+	/* rtl:remove */
+	left: 0;
+	z-index: 100;
+	/* Behind the navbar */
+	padding: 48px 0 0;
+	/* Height of navbar */
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.sidebar-sticky {
+	position: relative;
+	top: 0;
+	height: calc(100vh - 48px);
+	padding-top: .5rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+	/* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+	font-weight: 500;
+	color: #333;
+}
+
+.sidebar .nav-link .fa-light {
+	margin-right: 4px;
+	color: #727272;
+}
+
+.sidebar .nav-link.active {
+	color: #2470dc;
+}
+
+.sidebar .nav-link:hover .fa-light,
+.sidebar .nav-link.active .fa-light {
+	color: inherit;
+}
+
+.sidebar-heading {
+	font-size: .75rem;
+}
+
+/*
+   * Navbar
+   */
+
+.navbar-brand {
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+	top: .25rem;
+	right: 1rem;
+}
+
+.btn {
+	border: 0;
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+	border-radius: 0.25rem;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	-ms-border-radius: 0.25rem;
+	-o-border-radius: 0.25rem;
+	transition: box-shadow .15s ease-in-out;
+	-webkit-transition: box-shadow .15s ease-in-out;
+	-moz-transition: box-shadow .15s ease-in-out;
+	-ms-transition: box-shadow .15s ease-in-out;
+	-o-transition: box-shadow .15s ease-in-out;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: .75rem;
+	line-height: 1.5;
+	padding: .625rem 1.5rem .5rem;
+}
+
+.btn-sm {
+	border-radius: 0.2rem;
+	padding: .375rem 1rem .3125rem;
+	-webkit-border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-ms-border-radius: 0.2rem;
+	-o-border-radius: 0.2rem;
+}
+
+.btn:hover {
+	box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 10%);
+}
+
+.form-control:focus,
+.form-select:focus,
+a:focus,
+.btn:focus {
+	box-shadow: none !important;
+}
+
+input,
+select,
+textarea {
+	border-radius: 0.25rem !important;
+	-webkit-border-radius: 0.25rem !important;
+	-moz-border-radius: 0.25rem !important;
+	-ms-border-radius: 0.25rem !important;
+	-o-border-radius: 0.25rem !important;
+}
+
+.choices {
+	margin-bottom: 0;
+}
+
+.ss-main .ss-single-selected .placeholder {
+	cursor: pointer;
+	opacity: 1;
+	background-color: transparent;
+}
+
+.ss-main .ss-single-selected {
+	height: 2.4rem;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+}
+
+
+/* Carousel base class */
+.carousel {
+	margin-bottom: 4rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+	bottom: 3rem;
+	z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+	height: 32rem;
+}
+
+
+/* MARKETING CONTENT
+  -------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+	margin-right: .75rem;
+	margin-left: .75rem;
+}
+
+/* rtl:end:ignore */
+
+
+/* Featurettes
+  ------------------------- */
+
+.featurette-divider {
+	margin: 5rem 0;
+	/* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+/* rtl:begin:remove */
+.featurette-heading {
+	letter-spacing: -.05rem;
+}
+
+/* rtl:end:remove */
+
+/* RESPONSIVE CSS
+  -------------------------------------------------- */
+
+@media (min-width: 40em) {
+
+	/* Bump up size of carousel content */
+	.carousel-caption p {
+		margin-bottom: 1.25rem;
+		font-size: 1.25rem;
+		line-height: 1.4;
+	}
+
+	.featurette-heading {
+		font-size: 50px;
+	}
+}
+
+@media (min-width: 62em) {
+	.featurette-heading {
+		margin-top: 7rem;
+	}
+}
+
+.bg-banner {
+	margin: 70px 0 4rem;
+	width: 100%;
+	min-height: 300px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	background-image: url(/assets/img/bg-1.jpg);
+}

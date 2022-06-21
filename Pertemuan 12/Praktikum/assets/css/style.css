@@ -1,0 +1,232 @@
+@import url(color.css);
+@import url("https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/mdb5/fonts/roboto-subset.css?ver=3.9.0-update.5");
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+body {
+	font-size: .875rem;
+}
+
+.fa-light {
+	width: 16px;
+	height: 16px;
+}
+
+.sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+	padding: 48px 0 0;
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}
+
+.sidebar-sticky {
+	position: relative;
+	top: 0;
+	height: calc(100vh - 48px);
+	padding-top: .5rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.sidebar .nav-link {
+	font-weight: 500;
+	color: #333;
+}
+
+.sidebar .nav-link .fa-light {
+	margin-right: 4px;
+	color: #727272;
+}
+
+.sidebar .nav-link.active {
+	color: #2470dc;
+}
+
+.sidebar .nav-link:hover .fa-light,
+.sidebar .nav-link.active .fa-light {
+	color: inherit;
+}
+
+.sidebar-heading {
+	font-size: .75rem;
+}
+
+.navbar-brand {
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+}
+
+.navbar .navbar-toggler {
+	top: .25rem;
+	right: 1rem;
+}
+
+.btn {
+	border: 0;
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+	border-radius: 0.25rem;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	-ms-border-radius: 0.25rem;
+	-o-border-radius: 0.25rem;
+	transition: box-shadow .15s ease-in-out;
+	-webkit-transition: box-shadow .15s ease-in-out;
+	-moz-transition: box-shadow .15s ease-in-out;
+	-ms-transition: box-shadow .15s ease-in-out;
+	-o-transition: box-shadow .15s ease-in-out;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: .75rem;
+	line-height: 1.5;
+	padding: .625rem 1.5rem .5rem;
+}
+
+.btn-sm {
+	border-radius: 0.2rem;
+	padding: .375rem 1rem .3125rem;
+	-webkit-border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-ms-border-radius: 0.2rem;
+	-o-border-radius: 0.2rem;
+}
+
+.btn:hover {
+	box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 10%);
+}
+
+.form-control:focus,
+.form-select:focus,
+a:focus,
+.btn:focus {
+	box-shadow: none !important;
+}
+
+input,
+select,
+textarea {
+	border-radius: 0.25rem !important;
+	-webkit-border-radius: 0.25rem !important;
+	-moz-border-radius: 0.25rem !important;
+	-ms-border-radius: 0.25rem !important;
+	-o-border-radius: 0.25rem !important;
+}
+
+.choices {
+	margin-bottom: 0;
+}
+
+.ss-main .ss-single-selected .placeholder {
+	cursor: pointer;
+	opacity: 1;
+	background-color: transparent;
+}
+
+.ss-main .ss-single-selected {
+	height: 2.4rem;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+}
+
+.carousel {
+	margin-bottom: 4rem;
+}
+
+.carousel-caption {
+	bottom: 3rem;
+	z-index: 10;
+}
+
+.carousel-item {
+	height: 32rem;
+}
+
+.marketing .col-lg-4 {
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+
+.marketing .col-lg-4 p {
+	margin-right: .75rem;
+	margin-left: .75rem;
+}
+
+.featurette-divider {
+	margin: 5rem 0;
+}
+
+.featurette-heading {
+	letter-spacing: -.05rem;
+}
+
+@media (min-width: 40em) {
+	.carousel-caption p {
+		margin-bottom: 1.25rem;
+		font-size: 1.25rem;
+		line-height: 1.4;
+	}
+
+	.featurette-heading {
+		font-size: 50px;
+	}
+}
+
+@media (min-width: 62em) {
+	.featurette-heading {
+		margin-top: 7rem;
+	}
+}
+
+.bg-banner {
+	margin: 70px 0 4rem;
+	width: 100%;
+	min-height: 300px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	background-image: url(/assets/img/bg-1.jpg);
+}
+
+.navbar-toggler {
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+}
+
+.navbar-toggler:focus {
+	box-shadow: none;
+}
+
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
+
+.label-required::after {
+	content: "*";
+	color: var(--danger);
+}
+
+.badge {
+	box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+	padding: 0.35rem 0.75rem;
+	border-radius: 0.25rem;
+	line-height: 13px;
+	-webkit-border-radius: 0.25rem;
+	-moz-border-radius: 0.25rem;
+	-ms-border-radius: 0.25rem;
+	-o-border-radius: 0.25rem;
+}
+
+.alert {
+	border: 0;
+}

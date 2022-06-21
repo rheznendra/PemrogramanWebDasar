@@ -1,0 +1,130 @@
+:root {
+	--primary: #1266F1;
+	--secondary: #B23CFD;
+	--success: #00B74A;
+	--danger: #F93154;
+	--warning: #FFA900;
+	--info: #39C0ED;
+	--light: #FBFBFB;
+	--dark: #262626;
+}
+
+.bg-primary,
+.btn-primary,
+.text-bg-primary {
+	background-color: var(--primary) !important;
+}
+
+.bg-secondary,
+.btn-secondary,
+.text-bg-secondary {
+	background-color: var(--secondary) !important;
+}
+
+.bg-success,
+.btn-success,
+.text-bg-success {
+	background-color: var(--success) !important;
+}
+
+.bg-danger,
+.btn-danger,
+.text-bg-danger {
+	background-color: var(--danger) !important;
+}
+
+.bg-warning,
+.btn-warning,
+.text-bg-warning {
+	background-color: var(--warning) !important;
+}
+
+.bg-info,
+.btn-info,
+.text-bg-info {
+	background-color: var(--info) !important;
+}
+
+.bg-light,
+.btn-light,
+.text-bg-light {
+	background-color: var(--light) !important;
+}
+
+.bg-dark,
+.btn-dark,
+.text-bg-dark {
+	background-color: var(--dark) !important;
+}
+
+.text-primary {
+	color: var(--primary) !important;
+}
+
+.text-secondary {
+	color: var(--secondary) !important;
+}
+
+.text-success {
+	color: var(--success) !important;
+}
+
+.text-danger {
+	color: var(--danger) !important;
+}
+
+.text-warning {
+	color: var(--warning) !important;
+}
+
+.text-info {
+	color: var(--info) !important;
+}
+
+.text-light {
+	color: var(--light) !important;
+}
+
+.text-dark {
+	color: var(--dark) !important;
+}
+
+.alert-primary {
+	background-color: #d0e0fc !important;
+	color: #0b3d91 !important;
+}
+
+.alert-secondary {
+	background-color: #f0d8ff !important;
+	color: #6b2498 !important;
+}
+
+.alert-success {
+	background-color: #ccf1db !important;
+	color: #006e2c !important;
+}
+
+.alert-danger {
+	background-color: #fed6dd !important;
+	color: #951d32 !important;
+}
+
+.alert-warning {
+	background-color: #fec !important;
+	color: #640 !important;
+}
+
+.alert-info {
+	background-color: #d7f2fb !important;
+	color: #22738e !important;
+}
+
+.alert-light {
+	background-color: #fefefe !important;
+	color: #646464 !important;
+}
+
+.alert-dark {
+	background-color: #d4d4d4 !important;
+	color: #171717 !important;
+}
